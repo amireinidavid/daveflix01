@@ -1,23 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BsCollectionPlay } from "react-icons/bs";
 import { FiHeart, FiUserCheck } from "react-icons/fi";
 import { CgMenuBoxed } from "react-icons/cg";
-import MenuDrawer from "../../components/Drawer/MenuDrawer";
+import MainDrawer from "../../components/Drawer/MainDrawer";
 import { SidebarContext } from "../../Context/DrawerContext";
+import DrawerModal from "../../components/Modals/DrawerModal";
 
 function MobileFooter() {
+  const [modalOpen, setModalOpen] = useState(false);
   const { mobileDrawer, toggleDrawer } = useContext(SidebarContext);
-  const active = "bg-white text-main";
+  console.log(toggleDrawer);
+  const active = "bg-dryGray text-main";
+  const hover = "hover:text-main hover:bg-white";
   const inActive =
-    "transitions text-2xl flex-colo hover:bg-white hover:text-main text-white rounded-md px-4 py-3";
+    "transitions text-2xl flex-colo rounded   transitions flex gap-3 items-center p-4   rounded-md px-4 py-3";
   const Hover = ({ isActive }) =>
-    isActive ? `${active} ${inActive}` : inActive;
+    isActive ? `${active} ${inActive}` : `${inActive} ${hover}`;
 
   return (
     <>
+      <DrawerModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+
       <div className="flex flex-col h-full justify-between align-middle bg-white rounded cursor-pointer overflow-y-scroll flex-grow w-full ">
-        <MenuDrawer drawerOpen={mobileDrawer} toggleDrawer={toggleDrawer} />
+        <MainDrawer drawerOpen={mobileDrawer} toggleDrawer={toggleDrawer} />
       </div>
       <footer className="lg:hidden fixed z-50 bottom-0 w-full px-1">
         <div className="bg-dry rounded-md flex-btn w-full p-1">
@@ -33,10 +39,10 @@ function MobileFooter() {
 
             <FiHeart />
           </NavLink>
-          <NavLink to="/login" className={Hover}>
+          <NavLink className={Hover} to="/login">
             <FiUserCheck />
           </NavLink>
-          <button onClick={toggleDrawer} className={inActive}>
+          <button onClick={() => setModalOpen(true)} className={inActive}>
             <CgMenuBoxed />
           </button>
         </div>

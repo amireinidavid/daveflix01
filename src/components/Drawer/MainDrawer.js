@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Children } from "react";
 import Drawer from "rc-drawer";
 import MenuDrawer from "./MenuDrawer";
 
-function MainDrawer({ DrawerOpen, closeDrawer }) {
+function MainDrawer({ children, DrawerOpen, toggleDrawer }) {
   return (
     <Drawer
       open={DrawerOpen}
-      onClose={closeDrawer}
+      onClose={toggleDrawer}
       level={null}
       handler={false}
       placement="right"
     >
-      <MenuDrawer />
+      {children}
     </Drawer>
   );
 }

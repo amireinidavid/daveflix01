@@ -49,7 +49,7 @@ function MainModal({ modalOpen, setModalOpen, children }) {
               <button
                 type="button"
                 onClick={() => setModalOpen(false)}
-                className=" transitions flex-colo  w-10 h-10 text-base  text-subMain  bg-white rounded-full hover:bg-SubMain hover:text-white "
+                className=" transitions flex-colo  w-10 h-10 text-base  text-white  bg-subMain rounded-full hover:bg-white hover:text-subMain "
               >
                 <IoClose />
               </button>

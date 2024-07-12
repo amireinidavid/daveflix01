@@ -16,7 +16,7 @@ function MoviesPage() {
         <Fliters />
         <p className="text-lg font-medium my-6">
           Total{" "}
-          <span className="font-bold text-subMain ">{Movies?.length}</span> {""}{" "}
+          <span className="font-bold text-subMain ">{Movies?.length}</span>
           items found
         </p>
         <div className="grid sm:mt-10 mt-6 xl:grid-cols-4 2xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 gap-6">

@@ -1,27 +1,30 @@
 import React, { useState } from "react";
 import MainDrawer from "../components/Drawer/MainDrawer";
+import { FaSearch } from "react-icons/fa";
+import Layout from "../Layout/Layout";
 
 function Test() {
   const [visible, setVisible] = useState(false);
-
   const toggleDrawer = () => {
     setVisible(!visible);
   };
   return (
     <>
-      <button
-        className="bg-subMain border-3 border-main rounded hover:bg-subMain text-white"
-        onClick={toggleDrawer}
-      >
-        open drawer
-      </button>
-      <MainDrawer visible={visible} closeDrawer={toggleDrawer} />
-      <button
-        className="bg-subMain border-3 border-main rounded hover:bg-subMain text-white"
-        onClick={visible}
-      >
-        closeDrawer
-      </button>
+      <Layout>
+        <div className="col-span-3">
+          <MainDrawer Visible={visible} onClose={toggleDrawer} />
+          <div className="w-full text-sm bg-dryGray rounded flex-btn gap-4">
+            <button
+              type="submit "
+              className="bg-subMain w-12 flex-colo h-12 rounded text-white"
+              onClick={toggleDrawer}
+              onAbort={visible}
+            >
+              <FaSearch />
+            </button>
+          </div>
+        </div>
+      </Layout>
     </>
   );
 }

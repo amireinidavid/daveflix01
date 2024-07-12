@@ -21,9 +21,6 @@ import Users from "./Screens/Dashboard/Admin/Users";
 import ScrollOnTop from "./ScrollOnTop";
 import DrawerContext from "./Context/DrawerContext";
 import Test from "./Screens/Test";
-import { useState, CSSProperties, useEffect } from "react";
-import ScaleLoader from "react-spinners/ScaleLoader";
-import Preloader from "./components/Preloaders";
 
 function App() {
   Aos.init();
@@ -48,6 +45,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/users" element={<Users />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </ScrollOnTop>
     </DrawerContext>
