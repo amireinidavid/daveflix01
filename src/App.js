@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomeScreen from "./Screens/HomeScreen";
 import AboutUs from "./Screens/AboutUs";
 import NotFound from "./Screens/NotFound";
@@ -20,7 +20,9 @@ import Addmovies from "./Screens/Dashboard/Admin/Addmovies";
 import Users from "./Screens/Dashboard/Admin/Users";
 import ScrollOnTop from "./ScrollOnTop";
 import DrawerContext from "./Context/DrawerContext";
-import Test from "./Screens/Test";
+import AnimationCat from "./components/CategoriesSwitch/AnimationCat";
+import DramaCat from "./components/Home/DramaCat";
+import Actioncategory from "./components/CategoriesSwitch/Actioncategory";
 
 function App() {
   Aos.init();
@@ -45,7 +47,9 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/users" element={<Users />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="/anime" element={<AnimationCat />} />
+          <Route path="/drama" element={<DramaCat />} />
+          <Route path="/action" element={<Actioncategory />} />
         </Routes>
       </ScrollOnTop>
     </DrawerContext>

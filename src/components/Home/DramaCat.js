@@ -7,16 +7,16 @@ import { Movies } from "../../Data/MovieData";
 import { BsCollectionPlayFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
-function ActionCat() {
+function DramaCat() {
   const [nextEl] = useState(null);
   const [prevEl] = useState(null);
-  const ActionMovies = Movies.filter((movie) => movie.category === "Action");
+  const DramaMovies = Movies.filter((movie) => movie.category === "Drama");
   return (
     <>
       <div className="my-16">
-        <Titles title="Action Movies" Icon={BsCollectionPlayFill} />
+        <Titles title="Drama" Icon={BsCollectionPlayFill} />
         <div className=" text-subMain hover:text-white font-medium text-sm  lg:flex xl:justify-end">
-          <NavLink to="/action">Show More</NavLink>
+          <NavLink to="/drama">Show More</NavLink>
         </div>
       </div>
       <Swiper
@@ -44,7 +44,7 @@ function ActionCat() {
         }}
       >
         <div className="grid sm:mt-12 mt-6 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 ">
-          {ActionMovies.slice(0, 8).map((movie, index) => (
+          {DramaMovies.slice(0, 8).map((movie, index) => (
             <SwiperSlide key={index}>
               <Movie key={index} movie={movie} />
             </SwiperSlide>
@@ -55,4 +55,4 @@ function ActionCat() {
   );
 }
 
-export default ActionCat;
+export default DramaCat;
